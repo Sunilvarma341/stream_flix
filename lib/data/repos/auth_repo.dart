@@ -1,8 +1,8 @@
 import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:stream_flix/core/app_config.dart';
 
 class AuthRepo {
   AuthRepo._();
@@ -13,10 +13,8 @@ class AuthRepo {
   void initializeGoogleSignIn() {
     try {
       _googleAuth.initialize(
-        clientId:
-            "599684909315-4l2fhqtulve430djaa1ea36irtn4s4h3.apps.googleusercontent.com",
-        serverClientId:
-            "599684909315-4l2fhqtulve430djaa1ea36irtn4s4h3.apps.googleusercontent.com",
+        clientId: AppConfig.fireBaseClientId,
+        serverClientId: AppConfig.fireBaseClientId,
       );
     } catch (e) {
       log("Error during GoogleSignIn disconnect: $e");
